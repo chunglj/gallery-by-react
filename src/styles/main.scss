@@ -1,3 +1,8 @@
+@font-face{
+  font-family: "icons-turn-arrow";
+  src: url("../fonts/icons/turn-arrow.eot") format("embedded-opentype"), url("../fonts/icons/turn-arrow.woff") format("woff"), url("../fonts/icons/turn-arrow.ttf") format("truetype"), url("../fonts/icons/turn-arrow.svg") format("svg");
+}
+
 html body{
   background-color: #222;
   width: 100%;
@@ -12,7 +17,7 @@ html body{
 // stage-start
 .stage{
   width: 100%;
-  height: 680px;
+  height: 600px;
   position: relative;
 }
 
@@ -43,7 +48,7 @@ html body{
       background-color: #fff;
       transform-style: preserve-3d;
       transform-origin: 0 50% 0;
-      transition: left 0.6s ease-in-out, top 0.6s ease-in-out, transform 1s ease-in-out;
+      transition: left 0.3s ease-in-out, top 0.3s ease-in-out, transform 1s ease-in-out;
 
 
 
@@ -100,6 +105,40 @@ html body{
   z-index: 101;
   width:100%;
   text-align: center;
+
+  @at-root{
+    .controller-unit {
+      display: inline-block;
+      width: 30px;
+      height: 30px;
+      margin: 0 5px;
+
+      text-align: center;
+      cursor: pointer;
+      background-color: #aaa;
+      border-radius: 50%;
+      transform: scale(.5);
+      transition: transform 0.6s ease-in-out, background-color 0.3s;
+      vertical-align: middle;
+
+      &.is-center {
+        background-color: #888;
+        transform: scale(1);
+
+        &::after {
+          font-family: "icons-turn-arrow";
+          content: "\e600";
+          color: #fff;
+          line-height: 30px;
+        }
+
+        &.is-inverse{
+          background-color: #555;
+          transform: rotateY(180deg);
+        }
+      }
+    }
+  }
 }
 
 // controller-end
